@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+    
+    writer:
+        image: python:3.9
+        container_name: code-main
+        restart: always
+        volumes:
+            - ./code:/code
+        working_dir: /code
+        command: bash
+        
+        
+    tester:    
+        image: python:3.9
+        container_name: code-testing
+        restart: always
+        volumes:
+            - ./code:/code
+        working_dir: /code
+        command: ["/usr/local/bin/python3.9", "main.py"]
+    
+
+        
